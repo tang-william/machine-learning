@@ -73,13 +73,4 @@ plt.xticks(x_freq.keys())
 
 
 
-
-
-
-
-
-
-
-
-
 plt.show()

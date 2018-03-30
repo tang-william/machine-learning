@@ -71,6 +71,27 @@ for key, value in x_freq.items():
 
 plt.xticks(x_freq.keys())
 
+plt.subplot(313)
+x_vals =[]
+x_labels =[]
+y_vals =[]
+x_tick = 1
+for k,v in x_group.items():
+    for i in range(len(k)):
+        x_vals.append(x_tick)
+        x_label = '-'.join([str(kk) if not i else str(kk)[-2:] for i,kk in enumerate(k)])
+        x_labels.append(x_label)
+        y_vals.extend(list(v))
+        x_tick+=1
 
+plt.title("Dot Plot by Year Grouping")
+plt.xlabel('Year Group')
+plt.ylabel('No Presedential Request')
+try:
+    plt.plot(x_vals, y_vals, 'ro')
+except ValueError:
+    print len(x_vals), len(y_vals)
+
+plt.xticks(x_vals,x_labels,rotation=-35)
 
 plt.show()
